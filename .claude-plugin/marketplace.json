@@ -1,0 +1,15 @@
+{
+  "name": "irthai-claudeplugins",
+  "owner": {
+    "name": "Irth Solutions"
+  },
+  "plugins": [
+    {
+      "name": "irth-dev",
+      "source": "./plugins/dev",
+      "description": "Gated development pipeline — build, review, PR from any work item tracker. 4 gates with human approval, decision capture, and automatic project learning.",
+      "version": "1.0.0",
+      "keywords": ["dev", "pipeline", "code-review", "pr", "build", "learning"]
+    }
+  ]
+}

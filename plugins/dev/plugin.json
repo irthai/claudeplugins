@@ -1,0 +1,8 @@
+{
+  "name": "irth-dev",
+  "description": "Development pipeline — 4-stage gated workflow that builds features from work items, reviews code, and creates PRs. Learns from human feedback and grows project conventions automatically.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Irth Solutions"
+  }
+}

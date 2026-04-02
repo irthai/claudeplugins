@@ -1,0 +1,18 @@
+# OS
+.DS_Store
+
+# Dependencies
+node_modules/
+
+# Environment / secrets
+.env
+.env.*
+
+# Claude Code local settings (machine-specific)
+.claude/settings.local.json
+
+# Planning artifacts (generated per-story, not committed)
+.planning/*-SUMMARY.md
+.planning/*-DECISIONS.md
+.planning/*-STATE.md
+.planning/*-QA-REPORT.md
