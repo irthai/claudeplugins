@@ -20,7 +20,7 @@ Before doing anything else, load existing project knowledge:
 
 **3. Read `.planning/{story-id}-DECISIONS.md`** if it exists (a previous session may have started this story). Resume from where it left off.
 
-**4. Read `CODEBASE_CONTEXT.md`** It exists in the .claude folder of the repo. It contains high level architecture and other details of the overall product and the repository
+**4. Read `CODEBASE_CONTEXT.md`** if it exists in the .claude folder of the repo. It contains high level architecture and other details of the overall product and the repository
 
 **5. Read `CLAUDE.md`** wherever available in the project repository folder structure. Those would contain context within the component or folder. 
 
@@ -35,10 +35,11 @@ If the project root contains additional context files (architecture docs, knowle
 <step name="load_context">
 1. Fetch the full work item — title, description, acceptance criteria (use whatever tracker tools the project provides)
 2. Read `.planning/{story-id}-SUMMARY.md`
-3. Get the branch diff:
+3. Get the branch diff (detect the default branch dynamically — do not assume `master` or `main`):
    ```bash
-   git diff master...{branch-name}
-   git log master..{branch-name} --oneline
+   DEFAULT_BRANCH=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@' || git branch -l main master --format '%(refname:short)' | head -1)
+   git diff ${DEFAULT_BRANCH}...{branch-name}
+   git log ${DEFAULT_BRANCH}..{branch-name} --oneline
    ```
 4. Read the changed files in full — don't review from the diff alone
 </step>
@@ -114,9 +115,9 @@ After the human's accept/reject response, ask: "Did they tell me something about
 
 if this feedback can be applied as a common feedback to all code reviews in future, 
 
-**Promote to `dev-knowledge.md`** after review is complete for anything that affects all future reviews.
+**Promote to `.claude/dev-knowledge.md`** after review is complete for anything that affects all future reviews.
 
-Tell the human what was updated.
+Tell the human what was updated in `dev-knowledge.md`.
 </learning_protocol>
 
 <must_not_do>

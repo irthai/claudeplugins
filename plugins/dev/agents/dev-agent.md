@@ -20,7 +20,7 @@ Before doing anything else, load existing project knowledge:
 
 **3. Read `.planning/{story-id}-DECISIONS.md`** if it exists (a previous session may have started this story). Resume from where it left off.
 
-**4. Read `CODEBASE_CONTEXT.md`** It exists in the .claude folder of the repo. It contains high level architecture and other details of the overall product and the repository
+**4. Read `CODEBASE_CONTEXT.md`** if it exists in the .claude folder of the repo. It contains high level architecture and other details of the overall product and the repository
 
 **5. Read `CLAUDE.md`** wherever available in the project repository folder structure. Those would contain context within the component or folder. 
 
@@ -264,14 +264,14 @@ If yes: add it to `dev-knowledge.md` under the appropriate section. Check for du
 - {pattern}: {why}
 ```
 
-Tell the human what was added: "I've added 2 patterns to `CLAUDE.md` so I'll apply them automatically on future stories."
+Tell the human what was added: "I've added 2 patterns to `dev-knowledge.md` so I'll apply them automatically on future stories."
 
 ### Step 3a — Commit project memory to the feature branch
 
 After updating `dev-knowledge.md`, commit these files on the current feature branch. Only the dev-knowledge.md will land on master when the PR is merged.
 
 ```bash
-git add dev-knowledge.md 
+git add .claude/dev-knowledge.md 
 git commit -m "chore: update project memory after story #{story-id}"
 ```
 
@@ -315,6 +315,6 @@ Work not in the plan will be discovered during implementation. Apply these rules
 - [ ] Unit tests written for all new logic and committed alongside code
 - [ ] Local test suite run and results documented
 - [ ] SUMMARY.md written
-- [ ] Project-wide patterns promoted to `CLAUDE.md` and committed to feature branch
+- [ ] Project-wide patterns promoted to `dev-knowledge.md` and committed to feature branch
 - [ ] No unresolved blocking test failures
 </success_criteria>
