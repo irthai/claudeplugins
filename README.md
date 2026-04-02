@@ -60,6 +60,16 @@ claudeplugins/
 3. Add commands under `commands/` and agents under `agents/`
 4. Register the plugin in `.claude-plugin/marketplace.json` by adding an entry to the `plugins` array
 
+## Installation
+
+In Claude Code, run the following commands:
+
+```
+/plugin marketplace add https://github.com/irthai/claudeplugins
+/plugin install irth-dev@irthai-claudeplugins
+/reload-plugins
+```
+
 ## Requirements
 
 - [Claude Code](https://claude.ai/code)
